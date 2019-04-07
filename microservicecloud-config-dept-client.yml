@@ -1,0 +1,104 @@
+spring:
+  profiles:
+    active:
+    - dev
+    
+---
+
+server:
+  port: 8001
+  
+spring:
+  profiles: dev
+  application:
+    name: microservicecloud-config-dept-client
+  datasource:
+    url: jdbc:mysql://127.0.0.1:3306/springcloud?useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC&verifyServerCertificate=false&useSSL=false
+    type: com.alibaba.druid.pool.DruidDataSource
+    username: root
+    password: 123456
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    
+    dbcp2:
+      initial-size: 5
+      min-idle: 5
+      max-idle: 20
+      max-wait-millis: 60000
+ 
+#Mybatis配置 
+mybatis:
+  mapper-locations:
+  - classpath:com.atguigu.mapper/*.xml
+  configuration:
+    #开启驼峰命名
+    map-underscore-to-camel-case: true
+    #开启二级缓存
+    cache-enabled: true
+    
+#打印SQL语句
+logging:
+  level:
+    com.atguigu.mapper: DEBUG
+    
+eureka:
+  client:
+    service-url:
+      #注册中心URL
+      #单机版配置
+      defaultZone: http://eureka7001.com:7001/eureka
+                        
+  instance:
+    #服务实例(注册进注册中心)名称修改
+    instance-id: microservicecloud-provider-config-8001
+    #访问路径显示IP地址
+    prefer-ip-address: true
+    
+---
+
+server:
+  port: 8001
+  
+spring:
+  profiles: test
+  application:
+    name: microservicecloud-config-dept-client
+  datasource:
+    url: jdbc:mysql://127.0.0.1:3306/springcloud?useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC&verifyServerCertificate=false&useSSL=false
+    type: com.alibaba.druid.pool.DruidDataSource
+    username: root
+    password: 123456
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    
+    dbcp2:
+      initial-size: 5
+      min-idle: 5
+      max-idle: 20
+      max-wait-millis: 60000
+ 
+#Mybatis配置 
+mybatis:
+  mapper-locations:
+  - classpath:com.atguigu.mapper/*.xml
+  configuration:
+    #开启驼峰命名
+    map-underscore-to-camel-case: true
+    #开启二级缓存
+    cache-enabled: true
+    
+#打印SQL语句
+logging:
+  level:
+    com.atguigu.mapper: DEBUG
+    
+eureka:
+  client:
+    service-url:
+      #注册中心URL
+      #单机版配置
+      defaultZone: http://eureka7001.com:7001/eureka
+                        
+  instance:
+    #服务实例(注册进注册中心)名称修改
+    instance-id: microservicecloud-provider-config-8001
+    #访问路径显示IP地址
+    prefer-ip-address: true
