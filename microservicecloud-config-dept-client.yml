@@ -63,7 +63,7 @@ spring:
   application:
     name: microservicecloud-config-dept-client
   datasource:
-    url: jdbc:mysql://127.0.0.1:3306/springcloud?useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC&verifyServerCertificate=false&useSSL=false
+    url: jdbc:mysql://127.0.0.1:3306/springcloud2?useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC&verifyServerCertificate=false&useSSL=false
     type: com.alibaba.druid.pool.DruidDataSource
     username: root
     password: 123456
